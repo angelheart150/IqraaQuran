@@ -15,7 +15,7 @@ I have not forgotten our brothers in the Maghreb region who prefer the Warsh rec
 
 The installation file (IPK) is tested on Python 3.15.5, OpenATV 7.6 image, as shown in the attached files.
 
-================================================================================================================
+===============================================================
 
 Welcome to the Holy Quran Reading Plugin
 
