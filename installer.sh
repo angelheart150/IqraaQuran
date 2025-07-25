@@ -34,35 +34,24 @@ if [ "$REMOTE_VERSION" = "" ]; then
     exit 1
 fi
 
-if [ "$LOCAL_VERSION" = "" ]; then
-    echo "IqraaQuran is not currently installed."
-    INSTALL="yes"
+if [ "$LOCAL_VERSION" = "$REMOTE_VERSION" ]; then
+    echo "=============================================="
+    echo "You already have the latest version: $LOCAL_VERSION"
+    echo "No update needed."
+    echo "=============================================="
+    exit 0
 else
-    if [ "$REMOTE_VERSION" = "$LOCAL_VERSION" ]; then
-        echo "=============================================="
-        echo "You already have the latest version: $LOCAL_VERSION"
-        echo "No update needed."
-        echo "=============================================="
-        exit 0
+    echo "=============================================="
+    echo "NEW VERSION $REMOTE_VERSION AVAILABLE!"
+    echo "CURRENT VERSION: $LOCAL_VERSION"
+    echo "=============================================="
+    if wget -q -O /tmp/changelog.txt $MY_MAIN_URL$PACKAGE_DIR'/changelog.txt'; then
+        echo "CHANGELOG:"
+        cat /tmp/changelog.txt
     else
-        echo "=============================================="
-        echo "NEW VERSION $REMOTE_VERSION AVAILABLE!"
-        echo "CURRENT VERSION: $LOCAL_VERSION"
-        echo "=============================================="
-        if wget -q -O /tmp/changelog.txt $MY_MAIN_URL$PACKAGE_DIR'/changelog.txt'; then
-            echo "CHANGELOG:"
-            cat /tmp/changelog.txt
-        else
-            echo "No changelog available"
-        fi
-        echo "=============================================="
-        echo -n "Do you want to update now? (y/n): "
-        read -r INSTALL
-        if [ "$INSTALL" != "y" ] && [ "$INSTALL" != "Y" ]; then
-            echo "Update cancelled by user."
-            exit 0
-        fi
+        echo "No changelog available"
     fi
+    echo "=============================================="
 fi
 
 # Download and install package
