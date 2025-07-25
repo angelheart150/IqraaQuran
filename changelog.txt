@@ -1,0 +1,7 @@
+v1.1 (2025-07-25):
+- repair reminders settings
+- check updates for the plugin
+v1.0 (2025-07-24):
+- Initial release of IqraaQuran plugin
+- Basic Quran browsing functionality
+- Warsh recitation support
