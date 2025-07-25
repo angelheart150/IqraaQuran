@@ -14,7 +14,6 @@ if ! ping -c 1 github.com >/dev/null 2>&1; then
     echo "ERROR: No internet connection!"
     exit 1
 fi
-
 echo ''
 echo '************************************************************'
 echo '**                         STARTED                        **'
@@ -43,7 +42,6 @@ if [ "$REMOTE_VERSION" != "$LOCAL_VERSION" ]; then
     echo "=============================================="
     sleep 5
 fi
-
 # Download and install package
 echo "Downloading package..."
 if wget -T 15 -q $MY_URL -P "/tmp/"; then
@@ -64,5 +62,4 @@ else
     echo "DOWNLOAD FAILED!"
     exit 1
 fi
-
 exit 0
