@@ -1,3 +1,3 @@
 #!/bin/bash
 # Version configuration file
-CURRENT_VERSION="1.0"
+CURRENT_VERSION="1.1"
