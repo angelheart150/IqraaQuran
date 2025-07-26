@@ -1,2 +1,6 @@
 # Version configuration file
+<<<<<<< HEAD
 CURRENT_VERSION="1.1"
+=======
+CURRENT_VERSION="1.2"
+>>>>>>> 0f561bdac1169e72d2a6ebf5987ad4945b9c6744
