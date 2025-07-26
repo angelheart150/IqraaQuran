@@ -1,6 +1,6 @@
-v1.1 (2025-07-25):
+v1.1 (2025-07-26):
 - repair reminders settings
-- check updates for the plugin
+- Add check updates function
 v1.0 (2025-07-24):
 - Initial release of IqraaQuran plugin
 - Basic Quran browsing functionality
