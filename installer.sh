@@ -49,7 +49,7 @@ echo "**  https://www.tunisia-sat.com/forums/threads/4477396/   **"
 echo '************************************************************'
 PY_VER=$(detect_python_version)
 # Determine the name of the file based on the Python version
-IPK="enigma2-plugin-extensions-iqraaquran_1.1.py${PY_VER}_all.ipk"
+IPK="enigma2-plugin-extensions-iqraaquran_1.2.py${PY_VER}_all.ipk"
 MY_URL="${BASE_URL}${IPK}"
 MY_TMP_FILE="/tmp/${IPK}"
 # ---------------------------
