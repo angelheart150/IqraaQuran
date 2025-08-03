@@ -58,30 +58,40 @@ MY_TMP_FILE="/tmp/${IPK}"
 echo "Checking for updates..."
 REMOTE_VERSION=$(curl -s "${BASE_URL}version" | grep "CURRENT_VERSION" | cut -d'"' -f2)
 LOCAL_VERSION=$(grep "CURRENT_VERSION" /usr/lib/enigma2/python/Plugins/Extensions/IqraaQuran/__init__.py 2>/dev/null | cut -d'"' -f2)
-if [ "$REMOTE_VERSION" = "" ]; then
+if [ -z "$REMOTE_VERSION" ]; then
     echo -e "${RED}ERROR: Could not retrieve remote version.${RESET}"
     exit 1
 fi
-if [ "$LOCAL_VERSION" = "$REMOTE_VERSION" ]; then
-    echo "=============================================="
-    echo "You already have the latest version: $LOCAL_VERSION"
-    echo "No update needed."
-    echo "=============================================="
-    exit 0
+if [ -z "$LOCAL_VERSION" ]; then
+    echo -e "${YELLOW}Local version not found. Assuming fresh install...${RESET}"
 else
-    echo "=============================================="
-    echo "NEW VERSION $REMOTE_VERSION AVAILABLE!"
-    echo "CURRENT VERSION: $LOCAL_VERSION"
-    echo "=============================================="
-    if wget -q -O /tmp/changelog.txt "${BASE_URL}changelog.txt"; then
-        echo "CHANGELOG:"
-        cat /tmp/changelog.txt
-        echo ""
-    else
-        echo "No changelog available"
+    COMPARE_RESULT=$(printf '%s\n' "$REMOTE_VERSION" "$LOCAL_VERSION" | sort -V | head -n1)
+    if [ "$REMOTE_VERSION" = "$LOCAL_VERSION" ]; then
+        echo "=============================================="
+        echo "You already have the latest version: $LOCAL_VERSION"
+        echo "No update needed."
+        echo "=============================================="
+        exit 0
+    elif [ "$COMPARE_RESULT" = "$REMOTE_VERSION" ]; then
+        echo "=============================================="
+        echo "You already have version: $LOCAL_VERSION"
+        echo "No update needed."
+        echo "=============================================="
+        exit 0
     fi
-    echo "=============================================="
 fi
+echo "=============================================="
+echo "NEW VERSION $REMOTE_VERSION AVAILABLE!"
+echo "CURRENT VERSION: ${LOCAL_VERSION:-None}"
+echo "=============================================="
+if wget -q -O /tmp/changelog.txt "${BASE_URL}changelog.txt"; then
+    echo "CHANGELOG:"
+    cat /tmp/changelog.txt
+    echo ""
+else
+    echo "No changelog available"
+fi
+echo "=============================================="
 # ---------------------------
 # Download and install package
 # ---------------------------
