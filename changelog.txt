@@ -1,3 +1,9 @@
+v1.2 (2025-08-03):
+- Added new reciters to the plugin
+- Added "Muallim Quran" section (Quran for learning)
+- Fixed broken audio links in the Mujawwad Mushaf section
+- Added setting to disable automatic update check
+- Improved UI for the index and selection menus
 v1.1 (2025-07-26):
 - repair reminders settings
 - Add check updates function
