@@ -32,7 +32,7 @@ detect_python_version() {
     fi
     MIN_VERSION="3.9"
     if [[ "$(printf '%s\n' "$MIN_VERSION" "$PYTHON_VERSION" | sort -V | head -n1)" != "$MIN_VERSION" ]]; then
-        echo -e "${RED}ERROR: Image Python is $PYTHON_VERSION It isn't supported . i can installed on 3.9,3.10,3.11,3.12 and 3.13.${RESET}"
+        echo -e "${RED}ERROR: Image Python is $PYTHON_VERSION It isn't supported . i can installed on 3.10,3.11,3.12 and 3.13.${RESET}"
         exit 1
     fi
     echo "$PYTHON_VERSION"
@@ -49,7 +49,7 @@ echo "**  https://www.tunisia-sat.com/forums/threads/4477396/   **"
 echo '************************************************************'
 PY_VER=$(detect_python_version)
 # Determine the name of the file based on the Python version
-IPK="enigma2-plugin-extensions-iqraaquran_1.2.py${PY_VER}_all.ipk"
+IPK="enigma2-plugin-extensions-iqraaquran_1.3.py${PY_VER}_all.ipk"
 MY_URL="${BASE_URL}${IPK}"
 MY_TMP_FILE="/tmp/${IPK}"
 # ---------------------------
