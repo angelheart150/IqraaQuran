@@ -1,13 +1,34 @@
-v1.2 (2025-08-03):
+v1.3 (2026-02-21)
+AR:
+- إضافة طريقة القراءة صفحة واحدة أو صفحتين من الإعدادات
+EN:
+- Added reading mode option (single page or double page) in settings
+v1.2 (2025-08-03)
+AR:
+- إضافة قرّاء جدد إلى البلجن
+- إضافة قسم "مصحف المعلم" (القرآن للتعلّم)
+- إصلاح روابط الصوت المعطّلة في قسم المصحف المجوّد
+- إضافة خيار لتعطيل التحقق التلقائي من التحديثات
+- تحسين واجهة الفهرس وقوائم الاختيار
+EN:
 - Added new reciters to the plugin
 - Added "Muallim Quran" section (Quran for learning)
 - Fixed broken audio links in the Mujawwad Mushaf section
 - Added setting to disable automatic update check
 - Improved UI for the index and selection menus
-v1.1 (2025-07-26):
-- repair reminders settings
-- Add check updates function
-v1.0 (2025-07-24):
+v1.1 (2025-07-26)
+AR:
+- إصلاح إعدادات التذكير
+- إضافة ميزة التحقق من التحديثات
+EN:
+- Fixed reminders settings
+- Added update checking feature
+v1.0 (2025-07-24)
+AR:
+- الإصدار الأول من بلجن IqraaQuran
+- تصفح أساسي للقرآن الكريم
+- دعم رواية ورش
+EN:
 - Initial release of IqraaQuran plugin
 - Basic Quran browsing functionality
 - Warsh recitation support
